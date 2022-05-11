@@ -34,3 +34,17 @@ func sortMapValues(input map[int]string) (result []string) {
 	}
 	return result
 }
+
+func sortMapValuesAlt(input map[int]string) (result []string) {
+	l := len(input)
+	mapKeys := make([]int, 0, l)
+	for k := range input {
+		mapKeys = append(mapKeys, k)
+	}
+	sort.Ints(mapKeys)
+	result = make([]string, l)
+	for i, k := range mapKeys {
+		result[i] = input[k]
+	}
+	return result
+}
